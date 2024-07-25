@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>次元电竞</title>
+	<meta charset="UTF-8">
+	<title>抽取物品奖励</title>
+	<style>
+		body,html{
+			margin: 0
+			padding: 0;
+			height: 100%;
+			}
+			
+	    body {
+	        background-image: url('次元电竞/7788456.jpg'); /* 替换'path_to_your_image.jpg'为你的图片路径 */
+	        background-position: center;
+	        background-size: cover;
+	        background-repeat: no-repeat;
+			background-attachment: fixed;
+	    }
+		</style>
+  </head>
+  <body>	
+  <!DOCTYPE html>
+<html lang="en">
+  <div style="text-align: center;">
+    <p>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>欢迎来到次元电竞抽奖页面！</h1>
+    <p>点击下面的按钮开始抽取你的奖品：</p >
+    <button id="drawButton">抽取奖品</button>
+    <p id="prizeResult"></p >
+    <script>
+        // 奖品列表及其概率
+        var prizes = [
+            { name: '动漫随机手办', value: 1, probability: 0.01 },
+            { name: '动漫随机立牌', value: 2, probability: 0.05 },
+            { name: '动漫随机贴纸', value: 3, probability:0.3 },
+            { name: '动漫随机书签', value: 4, probability:  0.1},
+            { name: '动漫随机胸针', value: 5, probability:  0.09},
+            { name: '动漫随机咖啡杯', value: 6, probability: 0.02 },
+            { name: '动漫随机背景布', value: 7, probability: 0.15 },
+            { name: '动漫随机钥匙挂件', value: 8, probability:  0.15},
+            { name: '动漫随机海报', value: 9, probability: 0.08 },
+            { name: '动漫随机抱枕', value: 10, probability:  0.05}
+        ];
+
+        // 获取按钮元素
+        var drawButton = document.getElementById('drawButton');
+
+        // 添加点击事件监听器
+        drawButton.addEventListener('click', function() {
+            // 禁用按钮，防止立即再次点击
+            this.disabled = true;
+
+            // 设置计时器，5分钟后重新启用按钮
+            setTimeout(function() {
+                drawButton.disabled = false;
+            }, 300000);
+
+            // 执行抽奖逻辑
+            if (prizes.length < 1) {
+                document.getElementById('prizeResult').textContent = "抱歉，目前没有可用的奖品。";
+            } else {
+                // 计算总概率
+                var totalProbability = prizes.reduce((sum, item) => sum + item.probability, 0);
+                // 生成随机数
+                var randomNumber = Math.random() * totalProbability;
+                // 遍历奖品数组，根据概率选择奖品
+                var selectedPrize = null;
+                for (var i = 0; i < prizes.length; i++) {
+                    randomNumber -= prizes[i].probability;
+                    if (randomNumber <= 0) {
+                        selectedPrize = prizes[i];
+                        break;
+                    }
+                }
+                // 显示获奖信息
+                document.getElementById('prizeResult').textContent = "恭喜你获得了：" + selectedPrize.name;
+            }
+        });
+    </script>
+    </p >
+</body>
+</html>
+  </body>
+</html>
